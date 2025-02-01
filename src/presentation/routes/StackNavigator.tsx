@@ -4,8 +4,15 @@ import { ProductsScreen } from '../screens/products/ProductsScreen';
 import { SettingsScreen } from '../screens/settings/SettingsScreen';
 import { ProductScreen } from '../screens/products/ProductScreen';
 
+// Ten presente que debes utilizar type y no interface, ya que este último genera problemas
+export type RootStackParams = {
+    Home: undefined
+    Product: { id: number, name: string }
+    Products: undefined
+    Settings: undefined
+}
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParams>();
 
 // Esta es otra forma de hacerlo
 
