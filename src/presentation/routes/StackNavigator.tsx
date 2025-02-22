@@ -3,6 +3,8 @@ import { HomeScreen } from '../screens/home/HomeScreen';
 import { ProductsScreen } from '../screens/products/ProductsScreen';
 import { SettingsScreen } from '../screens/settings/SettingsScreen';
 import { ProductScreen } from '../screens/products/ProductScreen';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect } from 'react';
 
 // Ten presente que debes utilizar type y no interface, ya que este último genera problemas
 export type RootStackParams = {
@@ -26,6 +28,14 @@ const Stack = createStackNavigator<RootStackParams>();
 }); */
 
 export const StackNavigator = () => {
+
+    const navigator = useNavigation()
+
+    useEffect(() => {
+        navigator.setOptions({
+            headerShown: false,
+        })
+    }, [])
 
     return (
         <Stack.Navigator
